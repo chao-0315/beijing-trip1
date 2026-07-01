@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京九天專車慢活行程規劃表</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #18bc9c;
+            --accent-color: #ff0000; /* YouTube/提醒 紅 */
+            --airline-color: #2980b9; /* 華航藍 */
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .responsive-table th, .responsive-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .responsive-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        .responsive-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .date-col { width: 10%; font-weight: bold; color: var(--primary-color); }
+        .highlight-col { width: 35%; }
+        .meal-col { width: 15%; }
+        .memo-col { width: 25%; }
+        
+        /* 景點超連結樣式 (YouTube 紅) */
+        .spot-link {
+            color: #c0392b;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dashed #c0392b;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        .spot-link:hover {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+            background-color: #fff5f5;
+        }
+        .spot-link::after {
+            content: " 🎬";
+            font-size: 0.9em;
+            margin-left: 2px;
+        }
+
+        /* 航空公司超連結樣式 (華航藍) */
+        .airline-link {
+            color: var(--airline-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dashed var(--airline-color);
+            transition: all 0.2s ease;
+        }
+        .airline-link:hover {
+            color: #3498db;
+            border-bottom: 1px solid #3498db;
+            background-color: #eaf2f8;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .memo-box {
+            font-size: 0.9em;
+            color: #555;
+            background: #fff9db;
+            padding: 8px;
+            border-left: 4px solid #f59f00;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+        /* 華航劃位緊急提醒樣式 */
+        .alert-box {
+            font-size: 0.9em;
+            color: #b71c1c;
+            background: #ffebee;
+            padding: 8px;
+            border-left: 4px solid #ef5350;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* 手機板 RWD 響應式網頁設計 */
+        @media screen and (max-width: 768px) {
+            .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
+                display: block;
+                width: 100%;
+            }
+            .responsive-table tr {
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                padding: 10px;
+                background: #fff;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            }
+            .responsive-table th {
+                display: none;
+            }
+            .responsive-table td {
+                text-align: left;
+                padding-left: 15px;
+                border-bottom: 1px dotted #ccc;
+            }
+            .responsive-table td:last-child {
+                border-bottom: none;
+            }
+            .date-col, .highlight-col, .meal-col, .memo-col {
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>北京九天專車慢活行程規劃表</h1>
+    <div class="subtitle">日期：2026/07/02 - 07/10 </div>
+
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>行程亮點 </th>
+                <th>午餐地點</th>
+                <th>晚餐地點</th>
+                <th>專車與牛街住宿備忘錄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- D1 -->
+            <tr>
+                <td class="date-col">7/2 (四)<br>D1</td>
+                <td class="highlight-col">
+                    抵達北京 (CA186 13:00-16:15) → 專車接機 ➔ 入住<a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E4%BA%AC+%E7%89%9B%E8%A1%97" target="_blank">牛街</a>桔子酒店 → 晚上<a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E4%BA%AC+%E7%89%9B%E8%A1%97%E7%BE%8E%E9%A3%9F" target="_blank">牛街街區</a>輕鬆散步[cite: 1]
+                </td>
+                <td class="meal-col">(依航班時間自理)[cite: 1]</td>
+                <td class="meal-col">牛街洪記小吃店 或 白記年糕<br><small>(品嚐牛肉包子、爆肚、驢打滾，開啟吃貨模式)</small>[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="memo-box">第一天抵達先辦理入住休息，適應北方乾燥氣候。可在酒店附近採買水果、飲用水。[cite: 1]</div>
+                </td>
+            </tr>
+
+            <!-- D2 -->
+            <tr>
+                <td class="date-col">7/3 (五)<br>D2</td>
+                <td class="highlight-col">
+                    <span class="badge">故宮專屬日</span><br>
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%A4%A9%E5%AE%89%E9%97%A8%E5%B9%B5%E5%9C%BA" target="_blank">天安門廣場</a> (搭車路過) → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E4%BA%BA%E6%B0%91%E5%A4%A7%E4%BC%9A%E5%A0%82" target="_blank">人民大會堂</a> (搭車路過) → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2" target="_blank">故宮博物院</a> (上午精華遊，約下午二點出園) → 回酒店午休充電 → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E6%99%AF%E5%B1%B1%E5%85%AC%E5%9B%AD" target="_blank">景山公園</a> (下午四點後登頂看落日全景)[cite: 1]
+                </td>
+                <td class="meal-col">故宮餐廳或自備輕食<br><small>(故宮內部極大，在冰窖餐廳簡單用餐，爭取休息時間)</small>[cite: 1]</td>
+                <td class="meal-col">四季民福烤鴨店 (故宮店)<br><small>(看著故宮護城河夜景吃烤鴨，離牛街酒店開車僅 20 分鐘)</small>[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="memo-box"><strong>長輩減負密訣：</strong>天安門、大會堂採車遊不下來排隊。約一、二點回酒店睡午覺，下午四點後天氣轉涼再出門爬景山 (約走15分鐘石階)。[cite: 1]</div>
+                </td>
+            </tr>
+
+            <!-- D3 -->
+            <tr>
+                <td class="date-col">7/4 (六)<br>D3</td>
+                <td class="highlight-col">
+                    <span class="badge">長城專屬日</span><br>
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E6%85%95%E7%94%B0%E5%B3%AA%E9%95%B7%E5%9F%8E" target="_blank">慕田峪長城</a> (含全包式箱式纜車往返) → 下山專車返程 → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E4%BA%AC+%E9%B3%A5%E5%B7%A3" target="_blank">鳥巢</a> / 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E4%BA%AC+%E6%B0%B4%E7%AB%8B%E6%96%B9" target="_blank">水立方</a> (外觀絕美夜景)[cite: 1]
+                </td>
+                <td class="meal-col">慕田峪長城小鎮餐廳<br><small>(長城腳下享用精緻農家菜，補充電力)</small>[cite: 1]</td>
+                <td class="meal-col">局氣 (奧運村店)<br><small>(創意北京菜，欣賞完鳥巢水立方夜景後順路用餐)</small>[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="memo-box"><strong>長輩防暑提醒：</strong>7月郊區暴曬。務必多帶水水、補充電解質。早上 07:30 前出發避開出城車潮。長城上拍照吹風即可，切勿讓長輩強爬陡峭城牆。[cite: 1]</div>
+                </td>
+            </tr>
+
+            <!-- D4 -->
+            <tr>
+                <td class="date-col">7/5 (日)<br>D4</td>
+                <td class="highlight-col">
+                    <span class="badge">十三陵與淘寶日</span><br>
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E6%98%8E%E5%8D%81%E4%B8%89%E9%99%A5" target="_blank">明十三陵</a> (定陵地宮或長陵大殿) → 
+                    古玩物地攤 (<a class="spot-link" href="https://www.youtube.com/results?search_query=%E6%BD%98%E5%AE%B6%E5%9B%AD%E6%97%A7%E8%B4%A7%E5%B8%82%E5%9C%BA" target="_blank">潘家園</a> 或 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E4%BA%AC+%E5%A0%B1%E5%9C%8B%E5%AF%BA" target="_blank">報國寺</a>) → 全程專車接回酒店 (放棄搭乘地鐵)[cite: 1]
+                </td>
+                <td class="meal-col">昌平昌盛源春餅 或 景區農家院<br><small>(體驗昌平當地的春餅宴或特色烤鱒魚)</small>[cite: 1]</td>
+                <td class="meal-col">牛街聚寶源 (總店)<br><small>(牛街神級名店！走路即到。體驗最正宗的炭火銅鍋涮羊肉與手切鮮羊肉)</small>[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="memo-box"><strong>週末地攤提醒：</strong>潘家園地攤在週六、週日最為熱鬧，今天去剛好可以體驗最完整的古玩集市。長輩買好戰利品後，直接由專車接回酒店。下午 4:30 記得在車上先線上用 APP 點評抽取聚寶源大桌號碼牌。[cite: 1]</div>
+                </td>
+            </tr>
+
+            <!-- D5 -->
+            <tr>
+                <td class="date-col">7/6 (一)<br>D5</td>
+                <td class="highlight-col">
+                    <span class="badge">西北皇家園林線</span><br>
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E9%A2%90%E5%92%8C%E5%9B%AD+%E5%B0%8E%E8%A6%BD" target="_blank">頤和園</a> (精華遊船路線) → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%9C%93%E6%98%8E%E5%9B%AD+%E5%BE%A9%E5%8E%9F" target="_blank">圓明園</a> → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%B8" target="_blank">北京大學</a> (外觀西門拍照，不進校園)[cite: 1]
+                </td>
+                <td class="meal-col">白家大院<br><small>(開在海淀區，清宮宮廷菜，服務員身著旗袍，園林環境極美)</small>[cite: 1]</td>
+                <td class="meal-col">小大董 (海淀中關村店)<br><small>(精緻現代北京菜，適合看完北大後順路前往)</small>[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="memo-box">頤和園精華遊船路線指南：東宮門入園→仁壽殿→樂壽堂→文昌閣碼頭上船乘大遊船賞昆明湖、十七孔橋、佛香閣→石舫碼頭下船→直接進入全長728公尺的彩繪長廊往東散步（有遮蔭、有木椅）→走到長廊中段的排雲門附近→向北穿過無障礙通道→走向北宮門出園。千萬不要去爬「萬壽山佛香閣」。北大因缺乏遮蔭且純步行，門口拍照留念即可。[cite: 1]</div>
+                </td>
+            </tr>
+
+            <!-- D6 -->
+            <tr>
+                <td class="date-col">7/7 (二)<br>D6</td>
+                <td class="highlight-col">
+                    <span class="badge">南城歷史與步行街</span><br>
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E6%AD%A3%E9%93%BA%E9%97%A8%E5%9F%8E%E6%A8%93" target="_blank">正陽門城樓</a> → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E4%B8%AD%E5%9C%8B%E5%9C%8B%E5%AE%B6%E5%8D%9A%E7%89%A9%E9%A6%86" target="_blank">中國國家博物館</a> (上午冷氣參觀) → 中午烤鴨 → 下午回酒店睡午覺 → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E4%BA%AC+%E5%A4%A7%E5%A3%87" target="_blank">天壇公園</a> (傍晚祈年殿散步) → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%A4%A7%E6%A0%85%E6%AC%84" target="_blank">大柵欄</a> / 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E7%8E%8B%E5%BA%9C%E4%BA%95%E6%AD%A5%E8%A1%8C%E8%A1%97" target="_blank">王府井步行街</a> (有時間再逛)[cite: 1]
+                </td>
+                <td class="meal-col">便宜坊烤鴨 (前門總店)<br><small>(前門老字號悶爐烤鴨，國博參觀完後專車送去10分鐘即到)</small>[cite: 1]</td>
+                <td class="meal-col">王府井百貨地下「和平菓局」<br><small>(沉浸式復古老北京街區，內部可品嚐各種特色老胡同小吃)</small>[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="memo-box">國博內部有冷氣、電梯，非常平坦舒服。中午吃飽後<strong>必須嚴格執行下午回酒店午休</strong>。傍晚 4:15 天氣轉涼再前往天壇 (天壇與前門離牛街極近，專車往返極方便)。[cite: 1]</div>
+                </td>
+            </tr>
+
+            <!-- D7 -->
+            <tr>
+                <td class="date-col">7/8 (三)<br>D7</td>
+                <td class="highlight-col">
+                    <span class="badge">老北京王府與胡同</span><br>
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E6%81%AD%E7%8E%8B%E5%BA%9F" target="_blank">恭王府</a> (半天慢走) → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E6%B5%B8%E5%85%AC%E5%9B%AD" target="_blank">北海公園</a> → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E4%BB%80%E5%88%A9%E6%B5%B7+%E8%83%A1%E5%90%8C" target="_blank">什剎海</a> / 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E7%85%99%E8%A2%8B%E6%96%9C%E8%A1%97" target="_blank">煙袋斜街</a> (體驗胡同三輪車)[cite: 1]
+                </td>
+                <td class="meal-col">烤肉季 (什剎海總店)<br><small>(百年老字號，主打「烤羊肉」，位於銀錠橋旁，風景極佳)</small>[cite: 1]</td>
+                <td class="meal-col">梅府家宴 或 胡同私房菜<br><small>(什剎海胡同內的四合院私房菜，環境儒雅，體驗老北京王府宅門風情)</small>[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="alert-box">🚨 備忘提醒：今日 12:30 起開放 7/10 回程 <a class="airline-link" href="https://www.china-airlines.com/tw/zh/fly/check-in/index" target="_blank">中華航空</a> 網路報到與預選座位，請點此連結準時劃位！</div>
+                    <div class="memo-box" style="margin-top:5px;">恭王府面積適中，適合長輩。下午安排全團搭乘「老北京胡同三輪車」遊什剎海，長輩不用動腿，晚上在南鑼鼓巷南口上專車回酒店。[cite: 1]</div>
+                </td>
+            </tr>
+
+            <!-- D8 -->
+            <tr>
+                <td class="date-col">7/9 (四)<br>D8</td>
+                <td class="highlight-col">
+                    <span class="badge">東城文青與現代</span><br>
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E9%94%94%E5%92%8C%E5%AE%AE" target="_blank">雍和宮</a> (燒香祈福) → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E5%8C%97%E4%BA%AC+%E5%9A%AE%E5%BB%9F+%E5%9C%8B%E5%AD%90%E7%9B%A3" target="_blank">孔廟/國子監</a> (古樹散步) → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E4%BA%94%E9%81%93%E7%87%9F%E8%83%A1%E5%90%8C" target="_blank">五道營胡同</a> → 
+                    <a class="spot-link" href="https://www.youtube.com/results?search_query=%E4%B8%89%E9%87%8C%E5%B1%AF%E5%A4%AA%E5%8F%A4%E9%87%8C" target="_blank">三里屯太古里</a> (青年組行程，長輩可彈性先回酒店)[cite: 1]
+                </td>
+                <td class="meal-col">京兆尹 (雍和宮店) 或 五道營特色西餐<br><small>(京兆尹為米其林三星素食，環境充滿禪意，適合文化之旅)</small>[cite: 1]</td>
+                <td class="meal-col">新榮記 (三里屯店) 或 太古里潮流餐廳<br><small>(享用精緻美食，為這次北京之行畫下完美的現代時尚句點)</small>[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="memo-box">雍和宮、五道營為同一區域，步行即可。<strong>長輩累了可由專車先載回牛街酒店午休</strong>，年輕人可留在三里屯太古里逛街，傍晚專車再接長輩來三里屯會合吃晚餐。[cite: 1]</div>
+                </td>
+            </tr>
+
+            <!-- D9 -->
+            <tr>
+                <td class="date-col">7/10 (五)<br>D9</td>
+                <td class="highlight-col">
+                    酒店辦理退房 → 專車送機 <a class="airline-link" href="https://www.china-airlines.com/" target="_blank">中華航空</a> (CI512 12:30-15:45) 返回桃園[cite: 1]
+                </td>
+                <td class="meal-col">(依航班時間自理)[cite: 1]</td>
+                <td class="meal-col">溫馨的家[cite: 1]</td>
+                <td class="memo-col">
+                    <div class="memo-box">準備好行李與伴手禮。[cite: 1]</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
